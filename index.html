@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Static Site</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>Welcome to My Static Site</h1>
     <p>This site is hosted on Netlify!</p>
-    <img src="images/ruby.jpg" alt="Ruby Logo">
+    <img src="images/ruby.jpg" alt="Ruby Logo" />
     <p>This is an updated version of my site!</p>
     <script src="script.js"></script>
-</body>
+    <!--/* Added a form to collect user input without backend code */-->
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </body>
 </html>
