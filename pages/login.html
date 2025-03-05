@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- Include the Netlify Identity Widget script -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <button onclick="netlifyIdentity.open()">Login</button>
+    <script>
+      // Initialize the Netlify Identity Widget
+      netlifyIdentity.init();
+
+      // Optional: Handle login success (redirect or show user info)
+      netlifyIdentity.on("login", (user) => {
+        console.log("User logged in:", user);
+        // Redirect user after login to the home page (or any page)
+        window.location.href = "/pages/index.html";
+      });
+
+      // Optional: Handle logout (redirect to login page or do something else)
+      netlifyIdentity.on("logout", () => {
+        console.log("User logged out");
+        window.location.href = "/pages/login.html"; // Redirect back to login page after logout
+      });
+    </script>
+  </body>
+</html>

@@ -1,5 +1,8 @@
-# Redirect with a 302
-/old-page.html /new-page.html 302
+# Redirect index.html to root
+/ /pages/index.html 200
+
+# Redirect with a 301
+/pages/old-page.html /pages/new-page.html 301
 
 # Show a custom 404 for this path
-/* /custom-404.html 404
+/* /pages/custom-404.html 404

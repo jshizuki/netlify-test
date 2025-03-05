@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Static Site</title>
-    <link rel="stylesheet" href="style.css" />
+    <!--/* Include Netlify's built-in Identity Widget for logging in & out feature */-->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="stylesheet" href="../assets/style.css" />
   </head>
   <body>
     <h1>Welcome to My Static Site!</h1>
     <p>This site is hosted on Netlify!</p>
-    <img src="images/ruby.jpg" alt="Ruby Logo" />
+    <img src="../assets/images/ruby.jpg" alt="Ruby Logo" />
     <p>This is an updated version of my site!</p>
-    <script src="script.js"></script>
     <!--/* Added a form to collect user input without backend code */-->
     <form name="contact" method="POST" data-netlify="true">
       <p>
@@ -36,12 +37,6 @@
         <button type="submit">Send</button>
       </p>
     </form>
-
-    <form name="contact2" method="POST" data-netlify="true">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message"></textarea>
-      <button type="submit">Send</button>
-    </form>
+    <script src="../assets/script.js"></script>
   </body>
 </html>
