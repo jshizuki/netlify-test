@@ -1,5 +1,5 @@
 # Redirect index.html to root
-/ /pages/index.html 200
+/ /pages/login.html 200
 
 # Redirect with a 301
 /pages/old-page.html /pages/new-page.html 301
