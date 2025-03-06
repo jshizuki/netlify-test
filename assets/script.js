@@ -1,17 +1,37 @@
-console.log("Hello from Netlify!");
+console.log("Script is running on:", window.location.pathname);
 
-// Initialize the Netlify Identity Widget
+// Important: Must initialize Netlify Identity
 netlifyIdentity.init();
+// console.log("Netlify Identity object:", netlifyIdentity);
 
-// Optional: Handle login success (redirect or show user info)
+// Delay check slightly to ensure Identity is ready
+setTimeout(() => {
+  const user = netlifyIdentity.currentUser();
+  console.log("Manually checking user:", user);
+
+  // Redirect logged-in users away from login page
+  if (user && (window.location.pathname === "/" || window.location.pathname === "/pages/login.html")) {
+    console.log("Redirecting logged-in user to /pages/index.html");
+    window.location.href = "/pages/index.html";
+  }
+
+  // Redirect logged-out users trying to access protected pages
+  const protectedPages = ["/pages/index.html", "/pages/new-page.html", "/pages/old-page.html"];
+  if (!user && protectedPages.includes(window.location.pathname)) {
+    console.log("Redirecting logged-out user to /pages/login.html");
+    alert("You are not logged in!");
+    window.location.href = "/pages/login.html";
+  }
+}, 500); // Delay 500ms to ensure Identity loads
+
+// Handle login success
 netlifyIdentity.on("login", (user) => {
   console.log("User logged in:", user);
-  // Redirect user after login to the home page (or any page)
   window.location.href = "/pages/index.html";
 });
 
-// Optional: Handle logout (redirect to login page or do something else)
+// Handle logout
 netlifyIdentity.on("logout", () => {
   console.log("User logged out");
-  window.location.href = "/pages/login.html"; // Redirect back to login page after logout
+  window.location.href = "/pages/login.html"; // Redirect to login page after logout
 });

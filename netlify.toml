@@ -1,0 +1,15 @@
+[[redirects]]
+  from = "/"
+  to = "/pages/login.html"
+  status = 200
+
+[[redirects]]
+  from = "/pages/old-page.html"
+  to = "/pages/new-page.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/pages/custom-404.html"
+  status = 404
