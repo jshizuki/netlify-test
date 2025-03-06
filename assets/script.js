@@ -21,6 +21,8 @@ setTimeout(() => {
     console.log("Redirecting logged-out user to /pages/login.html");
     alert("You are not logged in!");
     window.location.href = "/pages/login.html";
+  } else {
+    document.body.style.display = "block"; // Show body content after checks
   }
 }, 500); // Delay 500ms to ensure Identity loads
 
