@@ -1,7 +1,6 @@
 [[redirects]]
   from = "/"
   to = "/.netlify/functions/block-ip"
-  status = 200
 
 [[redirects]]
   from = "/pages/old-page.html"
