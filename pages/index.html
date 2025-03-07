@@ -6,6 +6,7 @@
     <title>My Static Site</title>
     <!--/* Include Netlify's built-in Identity Widget for logging in & out feature */-->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script type="module" src="/netlify/functions/block-ip.js"></script>
     <link rel="stylesheet" href="../assets/style.css" />
   </head>
   <body>
@@ -13,7 +14,6 @@
     <h1>Welcome to My Static Site!</h1>
     <p>This site is hosted on Netlify!</p>
     <img src="../assets/images/ruby.jpg" alt="Ruby Logo" />
-    <img src="/static/uploads/sakura.jpg" alt="Sakura Picture" />
     <p>This is an updated version of my site!</p>
     <!--/* Added a form to collect user input without backend code */-->
     <form name="contact" method="POST" data-netlify="true">
