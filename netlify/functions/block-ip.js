@@ -10,6 +10,7 @@ exports.handler = async (event) => {
     event.headers["x-forwarded-for"] || event.headers["remote-addr"];
 
   if (blockedIps.includes(ipAddress)) {
+    console.log("Access forbidden:" + ipAddress);
     return {
       statusCode: 403,
       body: JSON.stringify({ message: "Access forbidden" }),
@@ -17,6 +18,7 @@ exports.handler = async (event) => {
   }
 
   // If the IP is not blocked, proceed to serve the site
+  console.log("Access granted:" + ipAddress);
   return {
     statusCode: 200,
     body: JSON.stringify({ message: "Access granted" }),
