@@ -1,13 +1,14 @@
 exports.handler = async (event) => {
-
   const blockedIps = [
     "::1", // Block localhost for testing
     "2001:f70:83e0:6000:1456:87f8:f059:b2c9", // IPv6 address
     "122.219.239.178", // IPv4 address (in case it's used)
   ];
 
-  const ipAddress =
+  const rawIp =
     event.headers["x-forwarded-for"] || event.headers["remote-addr"];
+
+  const ipAddress = rawIp ? rawIp.split(",")[0].trim() : "unknown";
 
   if (blockedIps.includes(ipAddress)) {
     console.log("Access forbidden:" + ipAddress);
